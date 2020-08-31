@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><%=@admin[0][1] %> <%=@admin[0][2] %></title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/admin/vendors/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="/admin/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="/admin/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="/admin/vendors/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="/admin/vendors/chartist/chartist.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="/admin/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="/admin//admin/images/favicon.png" />
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
+      <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="navbar-brand-wrapper d-flex align-items-center">
+          <h3 style="font-weight: bold;color: white">Trakya Admin</h3>
+
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-center flex-grow-1">
+          <h5 class="mb-0 font-weight-medium d-none d-lg-flex">Trakya Üniversitesi OBS Admin Paneli</h5>
+          <ul class="navbar-nav navbar-nav-right ml-auto">
+            <form class="search-form d-none d-md-block" action="#">
+              <i class="icon-magnifier"></i>
+              <input type="search" class="form-control" placeholder="Search Here" title="Search here">
+            </form>
+
+            <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
+            <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
+              <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                <img class="img-xs rounded-circle ml-2" src="/images/yetkili/<%=@admin[0][5] %>" alt="Profile image"> <span class="font-weight-normal"> <%=@admin[0][1] %> <%=@admin[0][2] %> </span></a>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+                <div class="dropdown-header text-center">
+                  <img height="80" class="img-md rounded-circle" src="/images/yetkili/<%=@admin[0][5] %>" alt="Profile image">
+                  <p class="mb-1 mt-3"><%=@admin[0][1] %> <%=@admin[0][2] %></p>
+                  <p class="font-weight-light text-muted mb-0"><%=@admin[0][6] %></p>
+                </div>
+                <a class="dropdown-item" href="/admin-logout"><i class="dropdown-item-icon icon-power text-primary"></i>Çıkış Yap</a>
+              </div>
+            </li>
+          </ul>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+            <span class="icon-menu"></span>
+          </button>
+        </div>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+          <ul class="nav">
+            <li class="nav-item nav-profile">
+              <a href="#" class="nav-link">
+                <div class="profile-image">
+                  <img class="img-xs rounded-circle" src="/images/yetkili/<%=@admin[0][5] %>" alt="profile image">
+                </div>
+                <div class="text-wrapper">
+                  <p class="profile-name"><%=@admin[0][1] %> <%=@admin[0][2] %></p>
+                  <p class="designation"><%=@admin[0][6] %></p>
+                </div>
+              </a>
+            </li>
+
+            <li class="nav-item nav-category"><span class="nav-link">ÖĞRENCİ</span></li>
+            <li class="nav-item"style="background-color: transparent" >
+              <a class="nav-link" href="/admin">
+                <span class="menu-title">Tüm Öğrenciler</span>
+                <i class="icon-people menu-icon"></i>
+              </a>
+            </li>
+
+            <li class="nav-item active" >
+              <a class="nav-link" href="/admin/ogrenci-ekle">
+                <span class="menu-title">Öğrenci Ekle</span>
+                <i class="icon-plus menu-icon"></i>
+              </a>
+            </li>
+
+            <li class="nav-item nav-category"><span class="nav-link">DERS</span></li>
+            <li class="nav-item" style="background-color: transparent">
+              <a class="nav-link" href="/admin/tum-dersler">
+                <span class="menu-title">Tüm Dersler</span>
+                <i class="icon-book-open menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item" style="background-color: transparent">
+              <a class="nav-link" href="/admin/ders-ekle">
+                <span class="menu-title">Ders Ekle</span>
+                <i class="icon-plus menu-icon"></i>
+              </a>
+            </li>
+
+           </ul>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <!-- Quick Action Toolbar Starts-->
+
+            <div class="row">
+              <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-sm-flex align-items-center mb-4">
+                      <h4 class="card-title mb-sm-0">Öğrenci Ekle</h4>
+                    </div>
+                    <div class="table-responsive border rounded p-1">
+
+                        <form action="/admin/ogrenci-ekle" method="post" enctype="multipart/form-data">
+                            <div class="row" style="width: 100%;margin: 15px">
+                              <div class="col-lg-6">
+                                <div class="for m-group">
+                                  <label for="largeInput" style="font-weight: bold">İsim</label>
+                                  <input type="text"  class="form-control form-control" id="isim" placeholder="isim" name="isim">
+                                </div><br>
+
+
+                                <div class="form-group">
+                                  <label for="largeInput" style="font-weight: bold">Tc</label>
+                                  <input type="number" class="form-control form-control" id="tc" placeholder="tc" name="tc">
+                                </div>
+
+
+                                <div class="form-group">
+                                  <label for="largeInput" style="font-weight: bold">Şifre</label>
+                                  <input type="text" class="form-control form-control" id="sifre" placeholder="sifre" name="password">
+                                </div>
+
+                                <div class="form-group">
+                                  <label for="largeInput" style="font-weight: bold">Telefon</label><br>
+                                  <input type="tel" class="form-control" id="tel" placeholder="tel" name="tel">
+                                </div>
+
+                                <div class="form-group">
+                                  <label for="largeInput" style="font-weight: bold">Resim</label><br>
+                                  <input type="file" class="form-control" id="file"  name="file">
+                                </div>
+                              </div>
+                              <div class="col-lg-6">
+
+                                <div class="for m-group">
+                                  <label for="largeInput" style="font-weight: bold">Soyisim</label>
+                                  <input type="text" class="form-control form-control" id="soyisim" placeholder="soyisim" name="soyisim">
+                                </div><br>
+
+                                <div class="form-group">
+                                  <label for="largeInput" style="font-weight: bold">Email</label>
+                                  <input type="email" class="form-control form-control" id="email" placeholder="email" name="email">
+                                </div>
+
+                                <div class="form-group">
+                                  <label for="largeInput" style="font-weight: bold">Dönem</label>
+                                  <input type="number" class="form-control form-control" id="donem" placeholder="dönem" name="donem">
+                                </div>
+
+                                <div class="form-group">
+                                  <label for="largeInput" style="font-weight: bold">Okul no</label>
+                                  <input type="number" class="form-control form-control" id="okulNo" placeholder="şifre" name="okulNo">
+                                </div>
+
+                              </div>
+                            </div>
+                            <div class="row justify-content-md-center" style="margin-bottom: 20px">
+
+                              <input name="input_id" style="display: none">
+                              <button type="submit" class="btn btn-danger" style="width: 150px;height: 40px;margin-left: 30px">Kaydet</button>
+                            </div>
+                        </form>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+          <!-- partial -->
+        </div>
+
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="/admin/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="/admin/vendors/chart.js/Chart.min.js"></script>
+    <script src="/admin/vendors/moment/moment.min.js"></script>
+    <script src="/admin/vendors/daterangepicker/daterangepicker.js"></script>
+    <script src="/admin/vendors/chartist/chartist.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="/admin/js/off-canvas.js"></script>
+    <script src="/admin/js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="/admin/js/dashboard.js"></script>
+    <!-- End custom js for this page -->
+  </body>
+</html>

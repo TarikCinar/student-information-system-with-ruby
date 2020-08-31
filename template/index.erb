@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><%=@user[0][1] %> <%=@user[0][2] %></title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../assets/vendors/iconfonts/mdi/css/materialdesignicons.css">
+    <!-- endinject -->
+    <!-- vendor css for this page -->
+    <!-- End vendor css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="../assets/css/shared/style.css">
+    <!-- endinject -->
+    <!-- Layout style -->
+    <link rel="stylesheet" href="../assets/css/demo_1/style.css">
+    <!-- Layout style -->
+    <link rel="shortcut icon" href="../asssets/images/favicon.ico" />
+  </head>
+  <body class="header-fixed">
+    <!-- partial:partials/_header.html -->
+    <nav class="t-header">
+      <div class="t-header-brand-wrapper">
+        <h3 style="font-weight: bold;color: grey">Trakya OBS</h3>
+      </div>
+      <div class="t-header-content-wrapper">
+        <div class="t-header-content">
+          <button class="t-header-toggler t-header-mobile-toggler d-block d-lg-none">
+            <i class="mdi mdi-menu"></i>
+          </button>
+          <form action="#" class="t-header-search-box">
+            <div class="input-group">
+              <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Ders ara" autocomplete="off">
+              <button class="btn btn-primary" type="submit"><i class="mdi mdi-arrow-right-thick"></i></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="page-body">
+      <!-- partial:partials/_sidebar.html -->
+      <div class="sidebar">
+        <div class="user-profile">
+          <div class="display-avatar animated-avatar">
+            <img class="profile-img img-lg rounded-circle" src="images/ogrenci/<%=@user[0][5] %>" alt="profile image">
+          </div>
+          <div class="info-wrapper">
+            <p class="user-name"><%=@user[0][1] %> <%=@user[0][2] %></p>
+            <h6 class="display-income" style="font-size: medium"><%=@user[0][3] %> </h6>
+          </div>
+        </div>
+        <ul class="navigation-menu">
+          <li class="nav-category-divider">BİLEŞENLER</li>
+          <li class="active">
+            <a href="/home">
+              <span class="link-title">Tüm Dersler</span>
+              <i class="mdi mdi-book-open link-icon"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#derler" data-toggle="collapse" aria-expanded="false">
+              <span class="link-title">Derslerim</span>
+              <i class="mdi mdi-book link-icon"></i>
+            </a>
+            <ul class="collapse navigation-submenu" id="derler">
+              <li>
+                <a href="/notlarim">Dönem İçi Notlarım </a>
+              </li>
+              <li>
+                <a href="#" target="_blank">Ders Programı</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#sample-pages" data-toggle="collapse" aria-expanded="false">
+              <span class="link-title">Bilgilerim</span>
+              <i class="mdi mdi-attachment link-icon"></i>
+            </a>
+            <ul class="collapse navigation-submenu" id="sample-pages">
+              <li>
+                <a href="#" target="_blank">Danışman Bilgisi</a>
+              </li>
+              <li>
+                <a href="#" target="_blank">Şifre Değişikliği</a>
+              </li>
+              <li>
+                <a href="#" target="_blank">Transkript</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#ui-elements" data-toggle="collapse" aria-expanded="false">
+              <span class="link-title">Kayıtlanma</span>
+              <i class="mdi mdi-login link-icon"></i>
+            </a>
+            <ul class="collapse navigation-submenu" id="ui-elements">
+              <li>
+                <a href="/ders-kaydi">Ders Kaydı</a>
+              </li>
+              <li>
+                <a href="#">Kayıt Ücreti</a>
+              </li>
+              <li>
+                <a href="#">Öğretim Ücreti</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">
+              <span class="link-title">Tıp</span>
+              <i class="mdi mdi-clipboard-play link-icon"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="link-title">Mesaj</span>
+              <i class="mdi mdi-message link-icon"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="link-title">Anket</span>
+              <i class="mdi mdi-clipboard-outline link-icon"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="/logout">
+              <span class="link-title">Çıkış Yap</span>
+              <i class="mdi mdi-logout link-icon"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- partial -->
+      <div class="page-content-wrapper">
+        <div class="page-content-wrapper-inner">
+          <div class="content-viewport">
+            <div class="row">
+              <div class="col-12 py-5">
+                <h4>Trakya OBS</h4>
+                <p class="text-gray">Hoşgeldin <%=@user[0][1] %> <%=@user[0][2] %></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="grid">
+                  <p class="grid-header"><%=@user[0][8] %>. Dönem Dersleri</p>
+                  <div class="item-wrapper">
+                    <div class="table-responsive">
+                      <table class="table info-table">
+                        <thead>
+                        <tr>
+                          <th>Ders Adı</th>
+                          <th>Ders Kodu</th>
+                          <th>Kredi</th>
+                          <th>Uygulama</th>
+                          <th>Teori</th>
+                          <th>Akts</th>
+                          <th>Dönem</th>
+                          <th>Durum</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <%for i in @not_list %>
+                          <%if i[0][6]=="gecti" %>
+                            <tr class="bg-primary">
+                              <td><%=i[1][1] %></td>
+                              <td><%=i[1][2] %></td>
+                              <td><%=i[1][3] %></td>
+                              <td><%=i[1][4] %></td>
+                              <td><%=i[1][5] %></td>
+                              <td><%=i[1][6] %></td>
+                              <td><%=i[1][8] %></td>
+                              <td>Geçti</td>
+                            </tr>
+                          <%end %>
+                          <%if i[0][6]=="kaldi" %>
+                            <tr class="bg-danger">
+                              <td><%=i[1][1] %></td>
+                              <td><%=i[1][2] %></td>
+                              <td><%=i[1][3] %></td>
+                              <td><%=i[1][4] %></td>
+                              <td><%=i[1][5] %></td>
+                              <td><%=i[1][6] %></td>
+                              <td><%=i[1][8] %></td>
+                              <td>Kaldı</td>
+                            </tr>
+                          <%end %>
+                        <%end %>
+                        <%for i in @alinmayan_dersler %>
+                          <tr>
+                            <td><%=i[1] %></td>
+                            <td><%=i[2] %></td>
+                            <td><%=i[3] %></td>
+                            <td><%=i[4] %></td>
+                            <td><%=i[5] %></td>
+                            <td><%=i[6] %></td>
+                            <td><%=i[8] %></td>
+                            <td>Alınmamış</td>
+                          </tr>
+                        <%end %>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><br><br>
+          </div>
+        </div>
+      </div>
+      <!-- page content ends -->
+    </div>
+    <!--page body ends -->
+    <!-- SCRIPT LOADING START FORM HERE /////////////-->
+    <!-- plugins:js -->
+    <script src="../assets/vendors/js/core.js"></script>
+    <!-- endinject -->
+    <!-- Vendor Js For This Page Ends-->
+    <script src="../assets/vendors/apexcharts/apexcharts.min.js"></script>
+    <script src="../assets/vendors/chartjs/Chart.min.js"></script>
+    <script src="../assets/js/charts/chartjs.addon.js"></script>
+    <!-- Vendor Js For This Page Ends-->
+    <!-- build:js -->
+    <script src="../assets/js/dashboard.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>
